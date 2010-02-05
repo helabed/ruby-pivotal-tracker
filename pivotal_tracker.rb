@@ -15,7 +15,9 @@ class Tracker
     @project_id, @token, @ssl = project_id, token, ssl
     protocol = @ssl ? 'https' : 'http'
     port     = @ssl ? '443'   : '80'
-    @base_url = "#{protocol}://www.pivotaltracker.com:#{port}/services/v1/projects"
+	#hani changed this on 02-05-2010
+    #@base_url = "#{protocol}://www.pivotaltracker.com:#{port}/services/v1/projects"
+    @base_url = "#{protocol}://www.pivotaltracker.com:#{port}/services/v3/projects"
   end
   
   def project
@@ -118,14 +120,19 @@ class Tracker
     resource_uri = URI.parse("#{@base_url}/#{@project_id}/stories/#{story_id}/notes")
     comment_xml = "<note><text>#{text}</text></note>"
     response = net_http(resource_uri).start do |http|
-      http.post(resource_uri.path, comment_xml, {'Token' => @token, 'Content-Type' => 'application/xml'})
+      # hani changed this 02-05-2010
+      #http.post(resource_uri.path, comment_xml, {'Token' => @token, 'Content-Type' => 'application/xml'})
+      http.post(resource_uri.path, comment_xml, {'X-TrackerToken' => @token, 'Content-Type' => 'application/xml'})
     end
-    validate_response(response.body)
+    #hani commented this out temporarily
+    #validate_response(response.body)
     doc = Hpricot(response.body).at('note')
     { :id     => doc.at('id').innerHTML.to_i,
       :text   => doc.at('text').innerHTML,
       :author => doc.at('author').innerHTML,
-      :date   => doc.at('date').innerHTML    }
+      #  hani changed this on 02-05-2010 to abide by pivotal API v3
+      #:date   => doc.at('date').innerHTML    }
+      :date   => doc.at('noted_at').innerHTML    }
   end
 
   def update_state(story_id, new_state)
