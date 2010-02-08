@@ -153,7 +153,9 @@ private
     response = Hpricot(body).at(response_root_element)
     if response == nil
       raise TrackerException.new("Expected response root element to be #{response_root_element}, got nil")
-    elsif (response/'errors'/'error')
+    elsif response.to_s.include? "<#{response_root_element}>"
+      # success
+    elsif (response/'errors'/'error') != nil
       raise TrackerException.new((response/'errors'/'error').innerHTML)
     end
   end
