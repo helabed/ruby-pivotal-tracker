@@ -1,0 +1,1693 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html class="with_footer" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+  <title>Pivotal Tracker: API</title>
+
+  <link href="api_files/non_stories_view_Tracker-20100129020051-ci.css" media="screen" rel="Stylesheet" type="text/css">
+  <script src="api_files/non_stories_view_Tracker-20100129020051-ci.js" type="text/javascript"></script>
+    
+  
+  
+  <!--[if IE]>
+    <link href="/stylesheets/ie_overrides_Tracker-20100129020051-ci.css" media="screen" rel="Stylesheet" type="text/css" />
+  <![endif]-->
+
+  
+</head><body class="yui-skin-sam"><iframe style="border-width: 0pt; position: absolute; visibility: visible; width: 10em; height: 10em; top: -153px; left: -153px;" id="_yuiResizeMonitor" src="data:text/html;charset=utf-8,%3Chtml%3E%3Chead%3E%3Cscript%20type%3D%22text%2Fjavascript%22%3Ewindow.onresize%3Dfunction%28%29%7Bwindow.parent.YAHOO.widget.Module.textResizeEvent.fire%28%29%3B%7D%3C%2Fscript%3E%3C%2Fhead%3E%3Cbody%3E%3C%2Fbody%3E%3C%2Fhtml%3E"></iframe>
+  <div style="display: none;"><img src="api_files/projects.png" alt=""><img src="api_files/projects_open.png" alt=""><img src="api_files/projects_hover.png" alt=""></div>
+  <div style="display: none;"></div>
+
+
+  <script type="text/javascript">
+  ENVIRONMENT='production'
+</script>
+<div id="header">
+  <div class="navigation_area">
+  <div class="navigation">
+    <div class="welcome_message">
+      Welcome, hani elabed
+    </div>
+    <div class="nav_links">
+      <a href="http://www.pivotaltracker.com/dashboard">Dashboard</a><span class="separator">|</span><a href="http://www.pivotaltracker.com/reports/progress">Reports</a><span class="separator">|</span><a href="http://www.pivotaltracker.com/profile">My Profile</a><span class="separator">|</span><a href="http://www.pivotaltracker.com/accounts">My Accounts</a><span class="separator">|</span><a href="http://www.pivotaltracker.com/help">Help</a><span class="separator">|</span><a href="http://www.pivotaltracker.com/signin" id="signout" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);f.submit();return false;">Sign Out</a>
+    </div>
+  </div>
+</div>
+
+  <div class="logo_and_projects_area">
+    <a href="#" id="projects_button" onclick="; return false;"></a><script type="text/javascript">
+//<![CDATA[
+      YAHOO.util.Event.onDOMReady(function() {
+        var menu = Pulldown.createMenuForButton($('projects_button'), 'my_projects_menu');
+        menu.addItems([
+          { text: "gmaps-helper", url: "/projects/11930"}, { text: "nextbodycomp", url: "/projects/32722"}, { text: "nexttesting", url: "/projects/6777"}, { text: "preparation-for-nexttesting", url: "/projects/15948"}, { text: "Rails Project Bootstrap", url: "/projects/20662"}, { text: "story126", url: "/projects/10203"}
+        ]);
+        menu.render('header');
+      });
+
+//]]>
+</script>
+    <a href="http://www.pivotaltracker.com/dashboard"><img alt="PivotalTracker" src="api_files/pivotal_tracker_small.png"></a>
+  </div>
+  <div class="messages">
+  <div class="relative">
+  <div id="status" class="statusOff" style=""></div>
+  
+  <div id="offlineMessage" style="display: none;">
+      You are currently offline
+  </div>
+</div>
+  </div>
+  <div class="clear"></div>
+<div style="position: absolute; visibility: hidden; z-index: 100; left: -10000px; top: -9999.43px;" class="yui-module yui-overlay yuimenu" id="my_projects_menu"><div class="bd"><ul class="first-of-type"><li index="0" groupindex="0" id="yui-gen0" class="yuimenuitem first-of-type"><a class="yuimenuitemlabel" href="http://www.pivotaltracker.com/projects/11930">gmaps-helper</a></li><li index="1" groupindex="0" id="yui-gen1" class="yuimenuitem"><a class="yuimenuitemlabel" href="http://www.pivotaltracker.com/projects/32722">nextbodycomp</a></li><li index="2" groupindex="0" id="yui-gen2" class="yuimenuitem"><a class="yuimenuitemlabel" href="http://www.pivotaltracker.com/projects/6777">nexttesting</a></li><li index="3" groupindex="0" id="yui-gen3" class="yuimenuitem"><a class="yuimenuitemlabel" href="http://www.pivotaltracker.com/projects/15948">preparation-for-nexttesting</a></li><li index="4" groupindex="0" id="yui-gen4" class="yuimenuitem"><a class="yuimenuitemlabel" href="http://www.pivotaltracker.com/projects/20662">Rails Project Bootstrap</a></li><li index="5" groupindex="0" id="yui-gen5" class="yuimenuitem"><a class="yuimenuitemlabel" href="http://www.pivotaltracker.com/projects/10203">story126</a></li></ul></div></div></div>
+
+
+  <div id="main">
+    <div class="content">
+      <div id="flash">
+        
+
+
+
+
+
+
+
+
+      </div>
+      
+<div class="help_page">
+<h1>Pivotal Tracker Help</h1>
+
+<div class="subnav"><ul class="buttons"><li> <a href="http://www.pivotaltracker.com/help" class="button">FAQ<div class="top_left"></div><div class="bottom_left"></div></a></li><li> <a href="http://www.pivotaltracker.com/help/gettingstarted" class="button">Getting Started</a></li><li> <a href="http://www.pivotaltracker.com/help/recentupdates" class="button">Recent Updates</a></li><li> <a href="http://www.pivotaltracker.com/help/thirdpartytools" class="button">Third Party Tools</a></li><li> <a class="button current">API</a></li><li class="last"> <a href="http://www.pivotaltracker.com/help/integrations" class="button">Integrations<div class="top_right"></div><div class="bottom_right"></div></a></li></ul></div>
+<br>
+
+<h2>API v3</h2>
+
+<br>
+
+<div class="content_section">
+  <h2><a name="introduction" class="anchor">Introduction</a></h2>
+  <p>Tracker
+provides an API that can be used to create, retrieve, update, and
+delete project, story, and task resources. This interface incorporates
+several elements of the REST tradition, making access to these actions
+consistent and intuitive.</p>
+  <p>In a nutshell: collections are
+accessed via a URL ending in a plural noun such as '/stories', and to
+target an individual record, append it's numerical id (/stories/85). To
+tell the API whether you are viewing, updating, or deleting the record,
+make use of the "HTTP verbs", GET, PUT, and DELETE (respectively). To
+create a new record, send a POST request to the collection's URL
+(/stories). The API will respond with an XML document reflecting your
+changes.</p>
+  <p>This is the third version of the API, and incorporates your feedback.  To see what's new, please read <a href="http://pivotallabs.com/users/dan/blog/articles/1135-pivotal-tracker-api-new-version-v3-to-be-released-on-jan-23">the blog post</a>.  As always, we welcome additional feedback and suggestions on <a target="_new" href="http://community.pivotaltracker.com/">Satisfaction</a>.</p>
+  <p><b>Note:</b> The <a href="http://www.pivotaltracker.com/help/api?version=v2">previous version</a> of the Tracker API is still available, but has been deprecated, and will be removed in the future.</p>
+
+</div>
+
+<div class="content_section">
+  <h2><a href="http://www.pivotaltracker.com/help/api?version=v3#api_actions">Available API Actions</a></h2>
+  <p>Here
+are some examples of supported API commands, and the corresponding
+responses. These examples are shown in the form of 'curl' commands.
+Curl is a command line utility used to perform HTTP requests, and is
+available on most Unix systems, but you can use any tool or language
+which can submit a corresponding HTTP request.</p>
+</div>
+
+<ul>
+  <li>
+    <h4><a href="http://www.pivotaltracker.com/help/api?version=v3#retrieve_token">Retrieve User Token</a></h4>
+    <ul>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#retrieve_token_basic_auth">Via Basic Auth</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#retrieve_token_post">Via POST</a></li>
+    </ul>
+  </li>
+  <li>
+    <h4><a href="http://www.pivotaltracker.com/help/api?version=v3#get_activity">Activity Feed</a></h4>
+    <ul>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_all_activity">All Activity</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_project_activity">Project Activity</a></li>
+    </ul>
+  </li>
+  <li>
+    <h4><a href="http://www.pivotaltracker.com/help/api?version=v3#getting_projects">Get Projects</a></h4>
+    <ul>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_project_info">Single project</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_project_all_projects">All my projects</a></li>
+    </ul>
+  </li>
+  <li>
+    <h4><a href="http://www.pivotaltracker.com/help/api?version=v3#manage_projects">Manage Projects</a></h4>
+    <ul>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#add_project">Add Project</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_memberships">All Memberships</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_membership_info">Get Membership</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#add_membership">Add Membership</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#remove_membership">Remove Membership</a></li>
+    </ul>
+  </li>
+  <li>
+    <h4><a href="http://www.pivotaltracker.com/help/api?version=v3#get_iterations">Get Iterations</a></h4>
+    <ul>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_iterations_with_limit_and_offset">with limit and offset</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_iterations_via_active_resource">via ActiveResource</a></li>
+    </ul>
+  </li>
+  <li>
+    <h4><a href="http://www.pivotaltracker.com/help/api?version=v3#getting_stories">Get Stories</a></h4>
+    <ul>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_story">Single story</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_all_stories">All stories in a project</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_stories_by_filter">Stories by filter</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#get_stories_with_pagination">With pagination</a></li>
+    </ul>
+  </li>
+  <li>
+    <h4><a href="http://www.pivotaltracker.com/help/api?version=v3#manage_stories">Manage Stories</a></h4>
+    <ul>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#add_story">Add Story</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#update_story">Update Story</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#add_note">Add Note (Comment)</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#delete_story">Delete Story</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#deliver_all_finished">Deliver All Finished Stories</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#move_stories">Move Stories (change priorities)</a></li>
+    </ul>
+  </li>
+  <li>
+    <h4><a href="http://www.pivotaltracker.com/help/api?version=v3#tasks">Tasks</a></h4>
+    <ul>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#view_task">View Tasks</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#view_task">View Single Task</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#add_task">Add Task</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#update_task">Update Task</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#delete_task">Delete Task</a></li>
+    </ul>
+  </li>
+  <li>
+    <h4><a href="http://www.pivotaltracker.com/help/api?version=v3#integrations">Integrations</a></h4>
+    <ul>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#import_xml_format">Import XML Format</a></li>
+    </ul>
+  </li>
+  <li>
+    <h4><a href="http://www.pivotaltracker.com/help/api?version=v3#attachments">Attachments</a></h4>
+    <ul>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#upload_attachment">Upload an attachment</a></li>
+    </ul>
+  </li>
+  <li>
+    <h4><a href="http://www.pivotaltracker.com/help/api?version=v3#scm_post_commit">Source Control Management Post-Commit Hook Integration</a></h4>
+    <ul>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#scm_post_commit_overview">Overview</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#scm_post_commit_message_syntax">Message Syntax</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#generic_curl_example">Generic Curl Example</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#subversion_post_commit_example">Subversion Example</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#git_post_receive_example">Git Example</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#other_hooks">Other SCM Tools</a></li>
+      <li><a href="http://www.pivotaltracker.com/help/api?version=v3#github_hooks">GitHub Post-Receive Hooks</a></li>
+    </ul>
+  </li>
+  
+  </ul>
+
+<br><br>
+<div class="content_section">
+  <h2><a href="http://www.pivotaltracker.com/help/api?version=v3#api_details">API Logistical Details</a></h2>
+  <p>This is some information you may need while consuming the API or writing software that does.</p>
+</div>
+
+<ul>
+  <li><h4><a href="http://www.pivotaltracker.com/help/api?version=v3#location">Location (URL)</a></h4></li>
+  <li><h4><a href="http://www.pivotaltracker.com/help/api?version=v3#access_control">Access Control</a></h4></li>
+  <li><h4><a href="http://www.pivotaltracker.com/help/api?version=v3#terminology">Terminology</a></h4></li>
+  <li><h4><a href="http://www.pivotaltracker.com/help/api?version=v3#escaping">HTML Escaping and URL Encoding</a></h4></li>
+  <li><h4><a href="http://www.pivotaltracker.com/help/api?version=v3#invoking_api">Using Various Clients</a></h4></li>
+</ul>
+
+<br><br>
+<div class="content_section">
+  <h2><a name="api_actions" class="anchor">Available API Actions</a></h2>
+  <h3><a name="retrieve_token" class="anchor">Retrieve User Token</a></h3>
+<h4><a name="retrieve_token_basic_auth" class="anchor">Via Basic Auth</a></h4>
+<p>Note: This API action requires SSL. While we recommend basic
+authentication, it is also possible to send the username and password
+parameters in a POST request.</p>
+  <pre>  curl -u <span class="example_variable">USERNAME</span>:<span class="example_variable">PASSWORD</span> -X GET https://www.pivotaltracker.com/services/v3/tokens/active
+  </pre>
+<br>
+  <pre>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;token&gt;
+    &lt;guid&gt;c93f12c71bec27843c1d84b3bdd547f3&lt;/guid&gt;
+    &lt;id type="integer"&gt;1&lt;/id&gt;
+  &lt;/token&gt;
+  </pre>
+
+<br>
+
+<h4><a name="retrieve_token_post" class="anchor">Via POST</a></h4>
+<p>Note: This API action requires SSL. We recommend basic authentication.</p>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -d username=<span class="example_variable">USERNAME</span> -d password=<span class="example_variable">PASSWORD</span> -X POST https://www.pivotaltracker.com/services/v3/tokens/active
+  </pre>
+<br>
+  <pre>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;token&gt;
+    &lt;guid&gt;c93f12c71bec27843c1d84b3bdd547f3&lt;/guid&gt;
+    &lt;id type="integer"&gt;1&lt;/id&gt;
+  &lt;/token&gt;
+  </pre>
+
+<br>
+
+
+  <br>
+  <h3><a name="get_activity" class="anchor">Activity Feed</a></h3>
+  <h4><a name="get_all_activity" class="anchor">All activity</a></h4>  
+  <p>
+   Allows you to retrieve the recent activity of all your projects.
+  </p>
+  <p>Activity API accepts the following optional URL parameters to alter the query</p>
+  <ul class="activity_url_options">
+    <li><em>limit</em>
+- you can limit the number of activity feed items to a desired number.
+Note the default value is 10, and there is a upper cap of 100</li>
+    <li><em>occurred_since_date</em>
+- allows restricting the activity feed to only those items that
+occurred after a supplied date (example format: 2009/12/18 21:00:00 UTC)</li>
+    <li><em>newer_than_version</em> - allows restricting the activity feed to only those items that have a greater than supplied version </li>
+  </ul>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/activities?newer_than_version=134
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('all-activity').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="all-activity">    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;activities type="array"&gt;
+      &lt;activity&gt;
+        &lt;id type="integer"&gt;1031&lt;/id&gt;
+        &lt;version type="integer"&gt;175&lt;/version&gt;
+        &lt;event_type&gt;story_update&lt;/event_type&gt;
+        &lt;occurred_at type="datetime"&gt;2009/12/14 14:12:09 PST&lt;/occurred_at&gt;
+        &lt;author&gt;James Kirk&lt;/author&gt;
+        &lt;project_id type="integer"&gt;26&lt;/project_id&gt;
+        &lt;description&gt;James Kirk accepted &amp;quot;More power to shields&amp;quot;&lt;/description&gt;
+        &lt;stories&gt;
+          &lt;story&gt;
+            &lt;id type="integer"&gt;109&lt;/id&gt;
+            &lt;url&gt;https://www.pivotaltracker.com/services/v3/projects/26/stories/109&lt;/url&gt;
+            &lt;lighthouse_id&gt;43&lt;/lighthouse_id&gt;
+            &lt;lighthouse_url&gt;http://mylighthouseapp.com/projects/100/tickets/43&lt;/lighthouse_url&gt;
+            &lt;accepted_at type="datetime"&gt;2009/12/14 22:12:09 UTC&lt;/accepted_at&gt;
+            &lt;current_state&gt;accepted&lt;/current_state&gt;
+          &lt;/story&gt;
+        &lt;/stories&gt;
+      &lt;/activity&gt;
+      &lt;activity&gt;
+        &lt;id type="integer"&gt;1030&lt;/id&gt;
+        &lt;version type="integer"&gt;175&lt;/version&gt;
+        &lt;event_type&gt;story_update&lt;/event_type&gt;
+        &lt;occurred_at type="datetime"&gt;2009/12/14 14:12:09 PST&lt;/occurred_at&gt;
+        &lt;author&gt;Montgomery Scott&lt;/author&gt;
+        &lt;project_id type="integer"&gt;28&lt;/project_id&gt;
+        &lt;description&gt;Montgomery Scott rejected &amp;quot;Warp speed&amp;quot; with comments: &amp;quot;Warp speed isn't working&amp;quot;&lt;/description&gt;
+        &lt;stories&gt;
+          &lt;story&gt;
+            &lt;id type="integer"&gt;119&lt;/id&gt;
+            &lt;url&gt;https://www.pivotaltracker.com/services/v3/projects/28/stories/119&lt;/url&gt;
+            &lt;accepted_at type="datetime"&gt;2009/12/14 22:12:09 UTC&lt;/accepted_at&gt;
+            &lt;current_state&gt;rejected&lt;/current_state&gt;
+          &lt;/story&gt;
+        &lt;/stories&gt;
+      &lt;/activity&gt;
+    &lt;/activities&gt;
+
+  </pre>
+  <br>
+
+  <h4><a name="get_project_activity" class="anchor">Project activity </a></h4>
+  <p>
+Allows you to retrieve the recent activity of a specific project, with
+an optional limit parameter (Note: the number of entries will be capped
+at 100). </p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/activities?limit=50
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('project-activity').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="project-activity">    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;activities type="array"&gt;
+      &lt;activity&gt;
+        &lt;id type="integer"&gt;1031&lt;/id&gt;
+        &lt;version type="integer"&gt;175&lt;/version&gt;
+        &lt;event_type&gt;story_update&lt;/event_type&gt;
+        &lt;occurred_at type="datetime"&gt;2009/12/14 14:12:09 PST&lt;/occurred_at&gt;
+        &lt;author&gt;James Kirk&lt;/author&gt;
+        &lt;project_id type="integer"&gt;26&lt;/project_id&gt;
+        &lt;description&gt;James Kirk accepted &amp;quot;More power to shields&amp;quot;&lt;/description&gt;
+        &lt;stories&gt;
+          &lt;story&gt;
+            &lt;id type="integer"&gt;109&lt;/id&gt;
+            &lt;url&gt;https://www.pivotaltracker.com/services/v3/projects/26/stories/109&lt;/url&gt;
+            &lt;accepted_at type="datetime"&gt;2009/12/14 22:12:09 UTC&lt;/accepted_at&gt;
+            &lt;current_state&gt;accepted&lt;/current_state&gt;
+            &lt;lighthouse_id&gt;43&lt;/lighthouse_id&gt;
+            &lt;lighthouse_url&gt;http://mylighthouseapp.com/projects/100/tickets/43&lt;/lighthouse_url&gt;
+          &lt;/story&gt;
+        &lt;/stories&gt;
+      &lt;/activity&gt;
+    &lt;/activities&gt;
+  </pre>
+  <br><br><br>
+  <h3><a name="getting_projects" class="anchor">Get Projects</a></h3>
+  <h4><a name="get_project_info" class="anchor">Get a single project</a></h4>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('get-project').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="get-project">    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;project&gt;
+      &lt;id&gt;1&lt;/id&gt;
+      &lt;name&gt;Sample Project&lt;/name&gt;
+      &lt;iteration_length type="integer"&gt;2&lt;/iteration_length&gt;
+      &lt;week_start_day&gt;Monday&lt;/week_start_day&gt;
+      &lt;point_scale&gt;0,1,2,3&lt;/point_scale&gt;
+      &lt;account&gt;James Kirks Account&lt;/account&gt;
+      &lt;velocity_scheme&gt;Average of 4 iterations&lt;/velocity_scheme&gt;
+      &lt;current_velocity&gt;10&lt;/current_velocity&gt;
+      &lt;initial_velocity&gt;10&lt;/initial_velocity&gt;
+      &lt;number_of_done_iterations_to_show&gt;12&lt;/number_of_done_iterations_to_show&gt;
+      &lt;labels&gt;shields,transporter&lt;/labels&gt;
+      &lt;allow_attachments&gt;true&lt;/allow_attachments&gt;
+      &lt;public&gt;false&lt;/public&gt;
+      &lt;use_https&gt;true&lt;/use_https&gt;
+      &lt;bugs_and_chores_are_estimatable&gt;false&lt;/bugs_and_chores_are_estimatable&gt;
+      &lt;commit_mode&gt;false&lt;/commit_mode&gt;
+      &lt;last_activity_at type="datetime"&gt;2010/01/16 17:39:10 CST&lt;/last_activity_at&gt;
+      &lt;memberships&gt;
+        &lt;membership&gt;
+          &lt;id&gt;1006&lt;/id&gt;
+          &lt;person&gt;
+            &lt;email&gt;kirkybaby@earth.ufp&lt;/email&gt;
+            &lt;name&gt;James T. Kirk&lt;/name&gt;
+            &lt;initials&gt;JTK&lt;/initials&gt;
+          &lt;/person&gt;
+          &lt;role&gt;Owner&lt;/role&gt;
+        &lt;/membership&gt;
+      &lt;/memberships&gt;
+      &lt;integrations&gt;
+        &lt;integration&gt;
+          &lt;id&gt;4532&lt;/id&gt;
+          &lt;title&gt;Lighthouse Sample Integration&lt;/title&gt;
+          &lt;active type="boolean"&gt;true&lt;/active&gt;
+        &lt;/integration&gt;
+      &lt;/integrations&gt;
+    &lt;/project&gt;
+  </pre>
+
+  <br>
+  <h4><a name="get_project_all_projects" class="anchor">All my projects</a></h4>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('get-projects').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="get-projects">    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;projects type="array"&gt;
+      &lt;project&gt;
+        &lt;id&gt;1&lt;/id&gt;
+        &lt;name&gt;Sample Project&lt;/name&gt;
+        &lt;iteration_length type="integer"&gt;2&lt;/iteration_length&gt;
+        &lt;week_start_day&gt;Monday&lt;/week_start_day&gt;
+        &lt;point_scale&gt;0,1,2,3&lt;/point_scale&gt;
+        &lt;velocity_scheme&gt;Average of 4 iterations&lt;/velocity_scheme&gt;
+        &lt;current_velocity&gt;10&lt;/current_velocity&gt;
+        &lt;initial_velocity&gt;10&lt;/initial_velocity&gt;
+        &lt;number_of_done_iterations_to_show&gt;12&lt;/number_of_done_iterations_to_show&gt;
+        &lt;labels&gt;shields,transporter&lt;/labels&gt;
+        &lt;allow_attachments&gt;true&lt;/allow_attachments&gt;
+        &lt;public&gt;false&lt;/public&gt;
+        &lt;use_https&gt;true&lt;/use_https&gt;
+        &lt;bugs_and_chores_are_estimatable&gt;false&lt;/bugs_and_chores_are_estimatable&gt;
+        &lt;commit_mode&gt;false&lt;/commit_mode&gt;
+        &lt;last_activity_at type="datetime"&gt;2010/01/16 17:39:10 CST&lt;/last_activity_at&gt;
+        &lt;memberships&gt;
+          &lt;membership&gt;
+            &lt;id&gt;1006&lt;/id&gt;
+            &lt;person&gt;
+              &lt;email&gt;kirkybaby@earth.ufp&lt;/email&gt;
+              &lt;name&gt;James T. Kirk&lt;/name&gt;
+              &lt;initials&gt;JTK&lt;/initials&gt;
+            &lt;/person&gt;
+            &lt;role&gt;Owner&lt;/role&gt;
+          &lt;/membership&gt;
+        &lt;/memberships&gt;
+        &lt;integrations&gt;
+          &lt;integration&gt;
+            &lt;id&gt;4532&lt;/id&gt;
+            &lt;title&gt;Lighthouse Sample Integration&lt;/title&gt;
+            &lt;active type="boolean"&gt;true&lt;/active&gt;
+          &lt;/integration&gt;
+        &lt;/integrations&gt;
+      &lt;/project&gt;
+      &lt;project&gt;
+        &lt;id&gt;2&lt;/id&gt;
+        &lt;name&gt;Sample Project 2&lt;/name&gt;
+        &lt;iteration_length type="integer"&gt;4&lt;/iteration_length&gt;
+        &lt;week_start_day&gt;Monday&lt;/week_start_day&gt;
+        &lt;point_scale&gt;0,1,2,3&lt;/point_scale&gt;
+        &lt;velocity_scheme&gt;Average of 4 iterations&lt;/velocity_scheme&gt;
+        &lt;current_velocity&gt;10&lt;/current_velocity&gt;
+        &lt;initial_velocity&gt;10&lt;/initial_velocity&gt;
+        &lt;number_of_done_iterations_to_show&gt;12&lt;/number_of_done_iterations_to_show&gt;
+        &lt;labels&gt;my label&lt;/labels&gt;
+        &lt;allow_attachments&gt;false&lt;/allow_attachments&gt;
+        &lt;public&gt;true&lt;/public&gt;
+        &lt;use_https&gt;false&lt;/use_https&gt;
+        &lt;bugs_and_chores_are_estimatable&gt;false&lt;/bugs_and_chores_are_estimatable&gt;
+        &lt;commit_mode&gt;false&lt;/commit_mode&gt;
+        &lt;last_activity_at type="datetime"&gt;2010/01/16 17:39:10 CST&lt;/last_activity_at&gt;
+        &lt;memberships&gt;
+        &lt;/memberships&gt;
+        &lt;integrations&gt;
+        &lt;/integrations&gt;
+      &lt;/project&gt;
+    &lt;/projects&gt;
+  </pre>
+
+  <br><br><br>
+  <h3><a name="manage_projects" class="anchor">Manage Projects</a></h3>
+  <h4><a name="add_project" class="anchor">Add a new project</a></h4>
+  <p>When
+adding a new project, you can specify the project attributes in the
+HTTP post body, or as URL parameters. This example shows how to use the
+curl "-d" option to pass XML in the post body:</p>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;project&gt;&lt;name&gt;Cardassian War Plans&lt;/name&gt;&lt;iteration_length type=\"integer\"&gt;2&lt;/iteration_length&gt;&lt;/project&gt;" \
+    -X POST http://www.pivotaltracker.com/services/v3/projects/
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('add-project').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="add-project">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;project&gt;
+    &lt;id&gt;27&lt;/id&gt;
+    &lt;name&gt;Cardassian War Plans&lt;/name&gt;
+    &lt;iteration_length type="integer"&gt;2&lt;/iteration_length&gt;
+    &lt;week_start_day&gt;Monday&lt;/week_start_day&gt;
+    &lt;point_scale&gt;0,1,2,3&lt;/point_scale&gt;
+    &lt;velocity_scheme&gt;Average of 4 iterations&lt;/velocity_scheme&gt;
+    &lt;initial_velocity&gt;10&lt;/initial_velocity&gt;
+    &lt;number_of_done_iterations_to_show&gt;12&lt;/number_of_done_iterations_to_show&gt;
+    &lt;allow_attachments&gt;true&lt;/allow_attachments&gt;
+    &lt;public&gt;false&lt;/public&gt;
+    &lt;use_https&gt;true&lt;/use_https&gt;
+    &lt;bugs_and_chores_are_estimatable&gt;false&lt;/bugs_and_chores_are_estimatable&gt;
+    &lt;commit_mode&gt;false&lt;/commit_mode&gt;
+    &lt;memberships&gt;
+      &lt;membership&gt;
+        &lt;id&gt;1&lt;/id&gt;
+        &lt;person&gt;
+          &lt;email&gt;picard@earth.ufp&lt;/email&gt;
+          &lt;name&gt;Jean-Luc Picard&lt;/name&gt;
+          &lt;initials&gt;jlp&lt;/initials&gt;
+        &lt;/person&gt;
+        &lt;role&gt;Owner&lt;/role&gt;
+      &lt;/membership&gt;
+    &lt;/memberships&gt;
+    &lt;integrations&gt;
+    &lt;/integrations&gt;
+  &lt;/project&gt;
+  </pre>
+  <br>
+  <p>Note:
+By default, the user whose credentials are supplied will be added as a
+project owner. To leave the project without this owner, supply the
+no_owner element in the post data. For example: </p>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;project&gt;&lt;name&gt;Cardassian War Plans&lt;/name&gt;&lt;iteration_length type=\"integer\"&gt;2&lt;/iteration_length&gt;&lt;no_owner type=\"boolean\"&gt;true&lt;/no_owner&gt;&lt;/project&gt;" \
+    -X POST http://www.pivotaltracker.com/services/v3/projects/
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('add-project-2').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="add-project-2">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;project&gt;
+    &lt;id&gt;27&lt;/id&gt;
+    &lt;name&gt;Cardassian War Plans&lt;/name&gt;
+    &lt;iteration_length type="integer"&gt;2&lt;/iteration_length&gt;
+    &lt;week_start_day&gt;Monday&lt;/week_start_day&gt;
+    &lt;point_scale&gt;0,1,2,3&lt;/point_scale&gt;
+    &lt;velocity_scheme&gt;Average of 4 iterations&lt;/velocity_scheme&gt;
+    &lt;initial_velocity&gt;10&lt;/initial_velocity&gt;
+    &lt;number_of_done_iterations_to_show&gt;12&lt;/number_of_done_iterations_to_show&gt;
+    &lt;allow_attachments&gt;true&lt;/allow_attachments&gt;
+    &lt;public&gt;false&lt;/public&gt;
+    &lt;use_https&gt;true&lt;/use_https&gt;
+    &lt;bugs_and_chores_are_estimatable&gt;false&lt;/bugs_and_chores_are_estimatable&gt;
+    &lt;commit_mode&gt;false&lt;/commit_mode&gt;
+    &lt;memberships&gt;
+    &lt;/memberships&gt;
+    &lt;integrations&gt;
+    &lt;/integrations&gt;
+  &lt;/project&gt;
+  </pre>
+
+  <br>
+  <h4><a name="get_memberships" class="anchor">All memberships</a></h4>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/memberships
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('get-memberships').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="get-memberships">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;memberships type="array"&gt;
+    &lt;membership&gt;
+      &lt;id&gt;1&lt;/id&gt;
+      &lt;person&gt;
+        &lt;email&gt;picard@earth.ufp&lt;/email&gt;
+        &lt;name&gt;Jean-Luc Picard&lt;/name&gt;
+        &lt;initials&gt;jlp&lt;/initials&gt;
+      &lt;/person&gt;
+      &lt;role&gt;Owner&lt;/role&gt;
+      &lt;project&gt;
+        &lt;id&gt;1&lt;/id&gt;
+        &lt;name&gt;Warp Engine Upgrades&lt;/name&gt;
+      &lt;/project&gt;
+    &lt;/membership&gt;
+    &lt;membership&gt;
+      &lt;id&gt;2&lt;/id&gt;
+      &lt;person&gt;
+        &lt;email&gt;jadzia@trill.ufp&lt;/email&gt;
+        &lt;name&gt;Jadzia Dax&lt;/name&gt;
+        &lt;initials&gt;JD&lt;/initials&gt;
+      &lt;/person&gt;
+      &lt;role&gt;Member&lt;/role&gt;
+      &lt;project&gt;
+        &lt;id&gt;1&lt;/id&gt;
+        &lt;name&gt;Warp Engine Upgrades&lt;/name&gt;
+      &lt;/project&gt;
+    &lt;/membership&gt;
+  &lt;/memberships&gt;
+  </pre>
+
+  <br>
+  <h4><a name="get_membership_info" class="anchor">Get a single membership</a></h4>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/memberships/<span class="example_variable">MEMBERSHIP_ID</span>
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('get-membership').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="get-membership">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;membership&gt;
+    &lt;id&gt;1&lt;/id&gt;
+    &lt;person&gt;
+      &lt;email&gt;picard@earth.ufp&lt;/email&gt;
+      &lt;name&gt;Jean-Luc Picard&lt;/name&gt;
+      &lt;initials&gt;jlp&lt;/initials&gt;
+    &lt;/person&gt;
+    &lt;role&gt;Owner&lt;/role&gt;
+    &lt;project&gt;
+      &lt;id&gt;1&lt;/id&gt;
+      &lt;name&gt;Warp Engine Upgrades&lt;/name&gt;
+    &lt;/project&gt;
+  &lt;/membership&gt;
+  </pre>
+
+  <br>
+  <h4><a name="add_membership" class="anchor">Add membership</a></h4>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;membership&gt;&lt;role&gt;Member&lt;/role&gt;&lt;person&gt;&lt;name&gt;Jadzia Dax&lt;/name&gt;&lt;initials&gt;JD&lt;/initials&gt;&lt;email&gt;jadzia@trill.ufp&lt;/email&gt;&lt;/person&gt;&lt;/membership&gt;" \
+    -X POST http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/memberships
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('add-membership').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="add-membership">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;membership&gt;
+    &lt;id&gt;15007&lt;/id&gt;
+    &lt;person&gt;
+      &lt;email&gt;jadzia@trill.ufp&lt;/email&gt;
+      &lt;name&gt;Jadzia Dax&lt;/name&gt;
+      &lt;initials&gt;JD&lt;/initials&gt;
+    &lt;/person&gt;
+    &lt;role&gt;Member&lt;/role&gt;
+    &lt;project&gt;
+      &lt;id&gt;1&lt;/id&gt;
+      &lt;name&gt;Warp Engine Upgrades&lt;/name&gt;
+    &lt;/project&gt;
+  &lt;/membership&gt;
+  </pre>
+
+  <br>
+  <h4><a name="remove_membership" class="anchor">Remove membership</a></h4>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X DELETE http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/memberships/<span class="example_variable">MEMBERSHIP_ID</span>
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('delete-membership').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="delete-membership">    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;membership&gt;
+      &lt;id&gt;1&lt;/id&gt;
+      &lt;person&gt;
+        &lt;email&gt;picard@earth.ufp&lt;/email&gt;
+        &lt;name&gt;Jean-Luc Picard&lt;/name&gt;
+        &lt;initials&gt;jlp&lt;/initials&gt;
+      &lt;/person&gt;
+      &lt;role&gt;Owner&lt;/role&gt;
+      &lt;project&gt;
+        &lt;id&gt;1&lt;/id&gt;
+        &lt;name&gt;Warp Engine Upgrades&lt;/name&gt;
+      &lt;/project&gt;
+    &lt;/membership&gt;
+  </pre>
+
+  <br><br><br>
+  <h3><a name="get_iterations" class="anchor">Get Iterations</a></h3>
+  <p>
+    Get stories by iteration. The example below shows how to retrieve all iterations, with stories.
+  </p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/iterations
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('get-iterations').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="get-iterations">    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;iterations type="array"&gt;
+      &lt;iteration&gt;
+        &lt;id type="integer"&gt;1&lt;/id&gt;
+        &lt;number type="integer"&gt;1&lt;/number&gt;
+        &lt;start type="datetime"&gt;2009/03/16 00:00:00 UTC&lt;/start&gt;
+        &lt;finish type="datetime"&gt;2009/03/23 00:00:00 UTC&lt;/finish&gt;
+        &lt;stories&gt;
+          &lt;story&gt;
+            &lt;id type="integer"&gt;1&lt;/id&gt;
+            &lt;story_type&gt;feature&lt;/story_type&gt;
+            &lt;url&gt;STORY_URL&lt;/url&gt;
+            &lt;estimate type="integer"&gt;2&lt;/estimate&gt;
+            &lt;current_state&gt;accepted&lt;/current_state&gt;
+            &lt;description&gt;Windoze Save Dialog thingy&lt;/description&gt;
+            &lt;name&gt;The Save Dialog&lt;/name&gt;
+            &lt;requested_by&gt;Dana Deer&lt;/requested_by&gt;
+            &lt;owned_by&gt;Rob&lt;/owned_by&gt;
+            &lt;created_at type="datetime"&gt;2009/03/16 16:55:04 UTC&lt;/created_at&gt;
+            &lt;accepted_at type="datetime"&gt;2009/03/19 19:00:00 UTC&lt;/accepted_at&gt;
+          &lt;/story&gt;
+          &lt;story&gt;...&lt;/story&gt;
+        &lt;/stories&gt;
+      &lt;/iteration&gt;
+      &lt;iteration&gt;
+        &lt;id type="integer"&gt;2&lt;/id&gt;
+        &lt;number type="integer"&gt;2&lt;/number&gt;
+        ...
+      &lt;/iteration&gt;
+      &lt;iteration&gt;
+        &lt;id type="integer"&gt;3&lt;/id&gt;
+        &lt;number type="integer"&gt;3&lt;/number&gt;
+        ...
+      &lt;/iteration&gt;
+      &lt;iteration&gt;
+        &lt;id type="integer"&gt;4&lt;/id&gt;
+        &lt;number type="integer"&gt;4&lt;/number&gt;
+        ...
+      &lt;/iteration&gt;
+      &lt;iteration&gt;
+        &lt;id type="integer"&gt;5&lt;/id&gt;
+        &lt;number type="integer"&gt;5&lt;/number&gt;
+        ...
+      &lt;/iteration&gt;
+    &lt;/iterations&gt;
+  </pre>
+  <br>
+  <p>In most cases, you'll probably want to work with the <span class="example_variable">done, current, or backlog</span>
+group of iterations only. Iteration group can be specifying at the end
+of the URL. The example below retrieves only iterations in the backlog:
+</p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/iterations/backlog
+  </pre>
+  <h4><a name="get_iterations_with_limit_and_offset" class="anchor">Get iterations with limit and offset</a></h4>
+  <p>Optionally, you can specify <span class="example_variable">offset</span> and <span class="example_variable">limit</span>
+as parameters (except for current, because there is always only one
+current iteration). The limit parameter controls the max number of
+iterations returned, and the offset parameter controls the number of
+iterations to skip from the beginning of the result. Given the previous
+example, the example below will only return iteration 2 and iteration 3
+from our project: </p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/iterations?offset=1&amp;limit=2
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('limited-iterations').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="limited-iterations">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;iterations type="array"&gt;
+    &lt;iteration&gt;
+      &lt;id type="integer"&gt;2&lt;/id&gt;
+      &lt;number type="integer"&gt;2&lt;/number&gt;
+      ...
+    &lt;/iteration&gt;
+    &lt;iteration&gt;
+      &lt;id type="integer"&gt;3&lt;/id&gt;
+      &lt;number type="integer"&gt;3&lt;/number&gt;
+      ...
+    &lt;/iteration&gt;
+  &lt;/iterations&gt;
+  </pre>
+  <br>
+  <p>For
+done iterations, offset should be negative, relative to the most recent
+done iteration. The following examples retrieves the last 6 done
+iterations: </p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/iterations/done?offset=-6
+  </pre>
+  <h4><a name="get_iterations_via_active_resource" class="anchor">Get iterations via ActiveResource</a></h4>
+<pre>  require 'rubygems'
+  require 'activeresource'
+
+  class Iteration &lt; ActiveResource::Base
+    self.site = "http://www.pivotaltracker.com/services/v3/projects/:project_id"
+    headers['X-TrackerToken'] = '<span class="example_variable">TOKEN</span>'
+  end
+
+  Iteration.find(:all, :params =&gt; {:project_id =&gt; <span class="example_variable">PROJECT_ID</span>, :group =&gt; "<span class="example_variable">current</span>"})
+  
+</pre>
+<br>
+
+  <br>
+<div class="content_section">
+  <h3><a name="getting_stories" class="anchor">Get Stories</a></h3>
+
+  <h4><a name="get_story" class="anchor">Get a single story</a></h4>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('single-story').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="single-story">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;story&gt;
+    &lt;id type="integer"&gt;<span class="example_variable">STORY_ID</span>&lt;/id&gt;
+    &lt;story_type&gt;feature&lt;/story_type&gt;
+    &lt;url&gt;http://www.pivotaltracker.com/story/show/<span class="example_variable">STORY_ID</span>&lt;/url&gt;
+    &lt;estimate type="integer"&gt;1&lt;/estimate&gt;
+    &lt;current_state&gt;accepted&lt;/current_state&gt;
+    &lt;lighthouse_id&gt;43&lt;/lighthouse_id&gt;
+    &lt;lighthouse_url&gt;http://mylighthouseapp.com/projects/100/tickets/43&lt;/lighthouse_url&gt;
+    &lt;description&gt;&lt;/description&gt;
+    &lt;name&gt;More power to shields&lt;/name&gt;
+    &lt;requested_by&gt;James Kirk&lt;/requested_by&gt;
+    &lt;owned_by&gt;Montgomery Scott&lt;/owned_by&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+    &lt;accepted_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/accepted_at&gt;
+    &lt;labels&gt;label 1,label 2,label 3&lt;/labels&gt;
+    &lt;attachments type="array"&gt;
+      &lt;attachment&gt;
+        &lt;id type="integer"&gt;4&lt;/id&gt;
+        &lt;filename&gt;shield_improvements.pdf&lt;/filename&gt;
+        &lt;description&gt;How to improve the shields in 3 easy steps.&lt;/description&gt;
+        &lt;uploaded_by&gt;James Kirk&lt;/uploaded_by&gt;
+        &lt;uploaded_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/uploaded_at&gt;
+      &lt;/attachment&gt;
+    &lt;/attachments&gt;
+  &lt;/story&gt;
+  </pre>
+
+  <br>
+  <h4><a name="get_all_stories" class="anchor">Get all stories for a project</a></h4>
+  <p>This
+command retrieves all stories for a project. Note that for very large
+projects with hundreds or thousands of stories, you might need to use
+the curl "-o" option to write directly to a file instead of standard
+output.</p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('all-stories').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="all-stories">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;stories type="array" count="10" total="10"&gt;
+    &lt;story&gt;
+      &lt;id type="integer"&gt;<span class="example_variable">STORY_ID</span>&lt;/span&gt;&lt;/id&gt;
+      &lt;story_type&gt;feature&lt;/story_type&gt;
+      &lt;url&gt;http://www.pivotaltracker.com/story/show/<span class="example_variable">STORY_ID</span>&lt;/url&gt;
+      &lt;estimate type="integer"&gt;1&lt;/estimate&gt;
+      &lt;current_state&gt;accepted&lt;/current_state&gt;
+      &lt;description&gt;&lt;/description&gt;
+      &lt;name&gt;More power to shields&lt;/name&gt;
+      &lt;requested_by&gt;James Kirk&lt;/requested_by&gt;
+      &lt;owned_by&gt;Montgomery Scott&lt;/owned_by&gt;
+      &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+      &lt;accepted_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/accepted_at&gt;
+      &lt;labels&gt;label 1,label 2,label 3&lt;/labels&gt;
+    &lt;/story&gt;
+    ...
+    ...
+  &lt;/stories&gt;
+  </pre>
+  <h4><a name="limits" class="anchor">A Note on Limits</a></h4>
+  <p>
+      For performance reasons, the API will return a maximum of <b>3000</b> stories per request.
+      This is a temporary limit and should be removed as the API matures.
+      If you encounter this limit, try reducing your result set by using <a href="http://www.pivotaltracker.com/help/api?version=v3#get_stories_by_filter">filters</a>.
+  </p>
+
+  <h4><a name="get_stories_by_filter" class="anchor">Get stories by filter</a></h4>
+  <p>
+Note that labels or strings with a space must be quoted, and multiple
+filters must be separated with a space, and everything must be
+URL-escaped (see the section on <a href="http://www.pivotaltracker.com/help/api?version=v3#escaping">HTML Escaping and URL Encoding</a>).
+      So, in this example, the un-URL-escaped filter parameter is '<span class="example_variable">filter=label:"needs feedback" type:bug</span>'. You can also
+      search on multiple values within the same search term, for example,  '<span class="example_variable">filter=id:1,2,3</span>' will return stories with the id
+      1, 2 or 3. Please see the <a href="http://www.pivotaltracker.com/help#howcanasearchberefined">FAQ entry on searching</a> for more information.
+  </p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" \
+    -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories?filter=label%3A%22needs%20feedback%22%20type%3Abug
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('filtered-stories').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="filtered-stories">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;stories type="array" count="0" total="0" filter="'label:'needs feedback' type:bug"&gt;
+    &lt;story&gt;
+      &lt;id type="integer"&gt;<span class="example_variable">STORY_ID</span>&lt;/id&gt;
+      &lt;story_type&gt;bug&lt;/story_type&gt;
+      &lt;url&gt;http://www.pivotaltracker.com/story/show/<span class="example_variable">STORY_ID</span>&lt;/url&gt;
+      &lt;estimate type="integer"&gt;-1&lt;/estimate&gt;
+      &lt;current_state&gt;started&lt;/current_state&gt;
+      &lt;description&gt;Now, Scotty!&lt;/description&gt;
+      &lt;name&gt;More power to shields&lt;/name&gt;
+      &lt;requested_by&gt;James Kirk&lt;/requested_by&gt;
+      &lt;owned_by&gt;Montgomery Scott&lt;/owned_by&gt;
+      &lt;created_at&gt;Oct 16, 2008&lt;/created_at&gt;
+      &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+      &lt;accepted_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/accepted_at&gt;
+      &lt;labels&gt;label 1,label 2,label 3&lt;/labels&gt;
+    &lt;/story&gt;
+  &lt;/stories&gt;
+  </pre>
+
+  <br>
+  <h4><a name="get_stories_with_pagination" class="anchor">Get stories with pagination</a></h4>
+  <p>
+      You can paginate through stories by optionally passing a limit and offset.
+  </p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET "http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories?limit=10&amp;offset=20"
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('paginated-stories').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="paginated-stories">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;stories type="array" count="10" total="100" limit="10" offset="20"&gt;
+    &lt;story&gt;
+      &lt;id type="integer"&gt;<span class="example_variable">STORY_ID</span>&lt;/id&gt;
+      &lt;story_type&gt;bug&lt;/story_type&gt;
+      &lt;url&gt;http://www.pivotaltracker.com/story/show/<span class="example_variable">STORY_ID</span>&lt;/url&gt;
+      &lt;estimate type="integer"&gt;-1&lt;/estimate&gt;
+      &lt;current_state&gt;started&lt;/current_state&gt;
+      &lt;description&gt;Now, Scotty!&lt;/description&gt;
+      &lt;name&gt;More power to shields&lt;/name&gt;
+      &lt;requested_by&gt;James Kirk&lt;/requested_by&gt;
+      &lt;owned_by&gt;Montgomery Scott&lt;/owned_by&gt;
+      &lt;created_at&gt;Oct 16, 2008&lt;/created_at&gt;
+      &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+      &lt;accepted_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/accepted_at&gt;
+      &lt;labels&gt;label 1,label 2,label 3&lt;/labels&gt;
+    &lt;/story&gt;
+    ...
+    ...
+  &lt;/stories&gt;
+  </pre>  
+  <br>
+  <br>
+  <br>
+  
+  <h3><a name="manage_stories" class="anchor">Manage Stories</a></h3>
+  <h4><a name="add_story" class="anchor">Add a new story</a></h4>
+  <p>When
+adding a new story, you can specify the story attributes in the HTTP
+post body, or as URL parameters. This example shows how to use the curl
+"-d" option to pass XML in the post body:</p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;story&gt;&lt;story_type&gt;feature&lt;/story_type&gt;&lt;name&gt;Fire torpedoes&lt;/name&gt;&lt;requested_by&gt;James Kirk&lt;/requested_by&gt;&lt;/story&gt;" \
+    -X POST http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('add-story').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="add-story">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;story&gt;
+    &lt;id type="integer"&gt;<span class="example_variable">STORY_ID</span>&lt;/id&gt;
+    &lt;story_type&gt;feature&lt;/story_type&gt;
+    &lt;url&gt;http://www.pivotaltracker.com/story/show/<span class="example_variable">STORY_ID</span>&lt;/url&gt;
+    &lt;estimate type="integer"&gt;-1&lt;/estimate&gt;
+    &lt;current_state&gt;unscheduled&lt;/current_state&gt;
+    &lt;description&gt;&lt;/description&gt;
+    &lt;name&gt;Fire torpedoes&lt;/name&gt;
+    &lt;requested_by&gt;James Kirk&lt;/requested_by&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+  &lt;/story&gt;
+  </pre>
+  <br>
+  <p>Here
+is an example of adding a new story with the attributes specified as
+URL parameters. Notice that there is some special escaping required by
+curl - you must quote the URL, escape square brackets, and URL-escape
+spaces (see the section on <a href="http://www.pivotaltracker.com/help/api?version=v3#escaping">HTML Escaping and URL Encoding</a>).</p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" \
+    -X POST  "http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories?story\[name\]=Make%20it%20so&amp;story\[requested_by\]=Picard"
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('add-story-url').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="add-story-url">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;story&gt;
+    &lt;id type="integer"&gt;<span class="example_variable">STORY_ID</span>&lt;/id&gt;
+    &lt;story_type&gt;feature&lt;/story_type&gt;
+    &lt;url&gt;http://www.pivotaltracker.com/story/show/<span class="example_variable">STORY_ID</span>&lt;/url&gt;
+    &lt;estimate type="integer"&gt;-1&lt;/estimate&gt;
+    &lt;current_state&gt;unscheduled&lt;/current_state&gt;
+    &lt;description&gt;&lt;/description&gt;
+    &lt;name&gt;Make it so&lt;/name&gt;
+    &lt;requested_by&gt;Picard&lt;/requested_by&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+  &lt;/story&gt;
+  </pre>
+  <br>
+  <h4><a name="update_story" class="anchor">Update a story</a></h4>
+  <p>When
+updating a story, you can specify the story attributes in the HTTP post
+body, or as URL parameters. This example shows how to use the curl "-d"
+option to pass XML in the PUT body:</p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;story&gt;&lt;estimate&gt;2&lt;/estimate&gt;&lt;labels&gt;tribbles, phaser&lt;/labels&gt;&lt;/story&gt;" \
+    -X PUT http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('update-story').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="update-story">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;story&gt;
+    &lt;id type="integer"&gt;<span class="example_variable">STORY_ID</span>&lt;/id&gt;
+    &lt;story_type&gt;chore&lt;/story_type&gt;
+    &lt;url&gt;http://www.pivotaltracker.com/story/show/<span class="example_variable">STORY_ID</span>&lt;/url&gt;
+    &lt;estimate type="integer"&gt;2&lt;/estimate&gt;
+    &lt;current_state&gt;started&lt;/current_state&gt;
+    &lt;description&gt;Now, Scotty!&lt;/description&gt;
+    &lt;name&gt;More power to shields&lt;/name&gt;
+    &lt;requested_by&gt;James Kirk&lt;/requested_by&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+    &lt;labels&gt;tribbles,phaser&lt;/labels&gt;
+  &lt;/story&gt;
+  </pre>
+  <br>
+
+  <p>Here
+is an example of editing a story with the attributes specified as URL
+parameters. Notice that there is some special escaping required by curl
+- you must quote the URL, escape square brackets, and URL-escape spaces
+(see the section on <a href="http://www.pivotaltracker.com/help/api?version=v3#escaping">HTML Escaping and URL Encoding</a>).
+Also note that you do not have to quote labels with spaces when you are
+adding them, only when they are used as part of a filter.</p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" \
+    -X PUT "http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>?story\[labels\]=tribbles,starfleet,alien%20life"
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('update-story-url').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="update-story-url">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;story&gt;
+    &lt;id type="integer"&gt;<span class="example_variable">STORY_ID</span>&lt;/id&gt;
+    &lt;story_type&gt;chore&lt;/story_type&gt;
+    &lt;url&gt;http://www.pivotaltracker.com/story/show/<span class="example_variable">STORY_ID</span>&lt;/url&gt;
+    &lt;estimate type="integer"&gt;2&lt;/estimate&gt;
+    &lt;current_state&gt;started&lt;/current_state&gt;
+    &lt;description&gt;Now, Scotty!&lt;/description&gt;
+    &lt;name&gt;More power to shields&lt;/name&gt;
+    &lt;requested_by&gt;James Kirk&lt;/requested_by&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+    &lt;labels&gt;alien life,starfleet,tribbles&lt;/labels&gt;
+  &lt;/story&gt;
+  </pre>
+  <br>
+  <br>
+  <p>Note:
+When updating stories with an XML PUT, empty or missing XML elements
+are ignored. To set fields to empty, use URL parameters. The example
+below shows how to remove all labels using this method:</p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" \
+    -X PUT "http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>?story\[labels\]="
+  </pre>
+
+  <br>
+
+  <div class="content_section">
+    <h4><a name="add_note" class="anchor">Add note (comment)</a></h4>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;note&gt;&lt;text&gt;new note via API&lt;/text&gt;&lt;/note&gt;" \
+    -X POST  http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>/notes
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('add-note').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="add-note">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;note&gt;
+    &lt;id type="integer"&gt;<span class="example_variable">NOTE_ID</span>&lt;/id&gt;
+    &lt;text&gt;new note via API&lt;/text&gt;
+    &lt;author&gt;Spock (young)&lt;/author&gt;
+    &lt;noted_at type="datetime"&gt;2009/01/16 18:53:51 UTC&lt;/noted_at&gt;
+  &lt;/note&gt;
+  </pre>
+
+  <br>
+  <h4><a name="delete_story" class="anchor">Delete a story</a></h4>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X DELETE http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('delete-story').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="delete-story">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;story&gt;
+    &lt;id type="integer"&gt;<span class="example_variable">STORY_ID</span>&lt;/id&gt;
+    &lt;story_type&gt;chore&lt;/story_type&gt;
+    &lt;url&gt;http://www.pivotaltracker.com/story/show/<span class="example_variable">STORY_ID</span>&lt;/url&gt;
+    &lt;estimate type="integer"&gt;2&lt;/estimate&gt;
+    &lt;current_state&gt;started&lt;/current_state&gt;
+    &lt;description&gt;Now, Scotty!&lt;/description&gt;
+    &lt;name&gt;More power to shields&lt;/name&gt;
+    &lt;requested_by&gt;James Kirk&lt;/requested_by&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+    &lt;labels&gt;starfleet,tribbles&lt;/labels&gt;
+  &lt;/story&gt;
+  </pre>
+
+  <br>
+  <h4><a name="deliver_all_finished" class="anchor">Deliver all finished stories</a></h4>
+  <p>
+    This action allows you to take all finished stories and mark them as delivered.
+    This could be used to automate a demo deploy process.
+    The updated stories are returned as the result. 
+  </p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X PUT http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/deliver_all_finished
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('deliver-all-finished').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="deliver-all-finished">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;stories type="array"&gt;
+    &lt;story&gt;
+      &lt;id type="integer"&gt;STORY_ID&lt;/id&gt;
+      &lt;story_type&gt;feature&lt;/story_type&gt;
+      &lt;url&gt;STORY_URL&lt;/url&gt;
+      &lt;estimate type="integer"&gt;2&lt;/estimate&gt;
+      &lt;current_state&gt;delivered&lt;/current_state&gt;
+      &lt;description&gt;&lt;/description&gt;
+      &lt;name&gt;Make it so&lt;/name&gt;
+      &lt;requested_by&gt;Picard&lt;/requested_by&gt;
+      &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+    &lt;/story&gt;
+  &lt;/stories&gt;
+  </pre>
+
+  <br>
+  <h4><a name="move_stories" class="anchor">Move Stories (Change priorities)</a></h4>
+  <p>
+    This action allows you to move a story before or after another story.
+    The moved story is returned in the response.
+  </p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" \
+    -X POST http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>/moves?move\[move\]=<span class="example_variable">after</span>&amp;move\[target\]=<span class="example_variable">TARGET_STORY_ID</span>"
+  </pre>
+  <p>or</p>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" \
+    -X POST http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>/moves?move\[move\]=<span class="example_variable">before</span>&amp;move\[target\]=<span class="example_variable">TARGET_STORY_ID</span>"
+  </pre>
+
+  <span class="api-example response"><a href="#" onclick="$('move-stories').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="move-stories">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;story&gt;
+      &lt;id type="integer"&gt;STORY_ID&lt;/id&gt;
+      &lt;story_type&gt;feature&lt;/story_type&gt;
+      &lt;url&gt;STORY_URL&lt;/url&gt;
+      &lt;estimate type="integer"&gt;2&lt;/estimate&gt;
+      &lt;current_state&gt;started&lt;/current_state&gt;
+      &lt;description&gt;&lt;/description&gt;
+      &lt;name&gt;Make it so&lt;/name&gt;
+      &lt;requested_by&gt;Picard&lt;/requested_by&gt;
+      &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+    &lt;/story&gt;
+  </pre>
+  <br><br>
+  <p>
+Note: When moving stories to and from the icebox or a planned
+iteration, a story will be placed in the same group as the target
+story. For example, lets say Story A is at the bottom of the backlog
+and story B is a the top of the icebox. When moving story C 'after'
+story A, story C will be placed in the backlog. But when moving story C
+'before' story B, it will be placed in the icebox. </p>
+    <h4><a name="link_story" class="anchor">Link a story to an external integration tool</a></h4>
+    <p>To
+link a story to external tools, for example Lighthouse, you can specify
+the lighthouse_id attribute in the HTTP post body, or as URL parameters
+when updating a story.</p>
+
+    <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;story&gt;&lt;lighthouse_id&gt;54&lt;/lighthouse_id&gt;&lt;/story&gt;" \
+    -X PUT http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>
+    </pre>
+    <span class="api-example response"><a href="#" onclick="$('link-story').toggle();; return false;">(show response)</a></span>
+    <pre class="response" style="" id="link-story">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;story&gt;
+    &lt;id type="integer"&gt;<span class="example_variable">STORY_ID</span>&lt;/id&gt;
+    &lt;story_type&gt;chore&lt;/story_type&gt;
+    &lt;url&gt;http://www.pivotaltracker.com/story/show/<span class="example_variable">STORY_ID</span>&lt;/url&gt;
+    &lt;estimate type="integer"&gt;2&lt;/estimate&gt;
+    &lt;current_state&gt;started&lt;/current_state&gt;
+    &lt;description&gt;Now, Scotty!&lt;/description&gt;
+    &lt;name&gt;More power to shields&lt;/name&gt;
+    &lt;lighthouse_id&gt;54&lt;/lighthouse_id&gt;
+    &lt;lighthouse_url&gt;http://mylighthouseapp.com/projects/100/tickets/54&lt;/lighthouse_url&gt;
+    &lt;requested_by&gt;James Kirk&lt;/requested_by&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+    &lt;labels&gt;tribbles,phaser&lt;/labels&gt;
+  &lt;/story&gt;
+    </pre>
+    <br>
+
+  <br><br><br>
+  <h3><a name="tasks" class="anchor">Tasks</a></h3>
+    <h4><a name="view_task" class="anchor">Get a single task</a></h4>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>/tasks/<span class="example_variable">TASK_ID</span>
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('get-task').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="get-task">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;task&gt;
+    &lt;id type="integer"&gt;TASK_ID&lt;/id&gt;
+    &lt;description&gt;find shields&lt;/description&gt;
+    &lt;position&gt;1&lt;/position&gt;
+    &lt;complete&gt;false&lt;/complete&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+  &lt;/task&gt;
+  </pre>
+  <br>
+  <h4>Get all tasks for a story</h4>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>/tasks
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('get-tasks').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="get-tasks">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;tasks type="array"&gt;
+    &lt;task&gt;
+      &lt;id type="integer"&gt;TASK_ID&lt;/id&gt;
+      &lt;description&gt;find shields&lt;/description&gt;
+      &lt;position&gt;1&lt;/position&gt;
+      &lt;complete&gt;false&lt;/complete&gt;
+      &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+    &lt;/task&gt;
+  &lt;/tasks&gt;
+  </pre>
+
+  <br>
+  <h4><a name="add_task" class="anchor">Add a task</a></h4>
+  <p>When
+adding a task, you can specify the task description in the HTTP post
+body, or as a URL parameter. This example shows how to use the curl
+"-d" option to pass XML in the POST body:</p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;task&gt;&lt;description&gt;clean shields&lt;/description&gt;&lt;/task&gt;" \
+    -X POST http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>/tasks
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('add-task').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="add-task">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;task&gt;
+    &lt;id type="integer"&gt;TASK_ID&lt;/id&gt;
+    &lt;description&gt;clean shields&lt;/description&gt;
+    &lt;position&gt;1&lt;/position&gt;
+    &lt;complete&gt;false&lt;/complete&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+  &lt;/task&gt;
+  </pre>
+  <br>
+  <p>Here
+is an example of adding a task with the description specified as a URL
+parameter. Notice that there is some special escaping required by curl
+- you must quote the URL, escape square brackets, and URL-escape spaces
+(see the section on <a href="http://www.pivotaltracker.com/help/api?version=v3#escaping">HTML Escaping and URL Encoding</a>).</p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" \
+    -X POST "http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>/tasks?task\[description\]=clean%20shields"
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('add-task-url').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="add-task-url">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;task&gt;
+    &lt;id type="integer"&gt;TASK_ID&lt;/id&gt;
+    &lt;description&gt;clean shields&lt;/description&gt;
+    &lt;position&gt;1&lt;/position&gt;
+    &lt;complete&gt;false&lt;/complete&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+  &lt;/task&gt;
+  </pre>
+
+  <br>
+  <h4><a name="update_task" class="anchor">Update a task</a></h4>
+  <p>When
+editing a task, you can specify the attributes in the HTTP post body,
+or as URL parameters. This example shows how to use the curl "-d"
+option to pass XML in the PUT body:</p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;task&gt;&lt;description&gt;count shields&lt;/description&gt;&lt;complete&gt;true&lt;/complete&gt;&lt;/task&gt;" \
+    -X PUT http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>/tasks/<span class="example_variable">TASK_ID</span>
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('update-task').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="update-task">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;task&gt;
+    &lt;id type="integer"&gt;TASK_ID&lt;/id&gt;
+    &lt;description&gt;count shields&lt;/description&gt;
+    &lt;position&gt;1&lt;/position&gt;
+    &lt;complete&gt;true&lt;/complete&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+  &lt;/task&gt;
+  </pre>
+  <br>
+  <p>Here
+is an example of editing a task with the attributes specified as URL
+parameters. Notice that there is some special escaping required by curl
+- you must quote the URL, escape square brackets, and URL-escape spaces
+(see the section on <a href="http://www.pivotaltracker.com/help/api?version=v3#escaping">HTML Escaping and URL Encoding</a>).</p>
+
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" \
+    -X PUT "http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>/tasks/<span class="example_variable">TASK_ID</span>?task\[description\]=count%20shields&amp;task\[position\]=2"
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('update-task-url').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="update-task-url">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;task&gt;
+    &lt;id type="integer"&gt;TASK_ID&lt;/id&gt;
+    &lt;description&gt;count shields&lt;/description&gt;
+    &lt;position&gt;2&lt;/position&gt;
+    &lt;complete&gt;false&lt;/complete&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+  &lt;/task&gt;
+  </pre>
+
+  <br>
+  <h4><a name="delete_task" class="anchor">Delete a task</a></h4>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X DELETE http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>/tasks/<span class="example_variable">TASK_ID</span>
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('delete-task').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="delete-task">  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;task&gt;
+    &lt;id type="integer"&gt;TASK_ID&lt;/id&gt;
+    &lt;description&gt;find shields&lt;/description&gt;
+    &lt;position&gt;&lt;/position&gt;
+    &lt;complete&gt;false&lt;/complete&gt;
+    &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+  &lt;/task&gt;
+  </pre>
+
+  <br><br><br>
+  <h3><a name="integrations" class="anchor">Integrations</a></h3>
+    <h4><a name="import_xml_format" class="anchor">Import XML Format</a></h4>
+
+  <p>Tracker can integrate with external services through its Integrations feature.  The <i>Other Integration</i>
+takes a URL that should return XML describing your remote stories in a
+way that Tracker can import them. Example XML that might be returned is
+below:</p>
+
+  <pre>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;external_stories type="array"&gt;
+    &lt;external_story&gt;
+      &lt;external_id&gt;stardate-54868.6&lt;/external_id&gt;
+      &lt;name&gt;More power to shields&lt;/name&gt;
+      &lt;description&gt;Klingons are attacking&lt;/description&gt;
+      &lt;requested_by&gt;James Kirk&lt;/requested_by&gt;
+      &lt;created_at type="datetime"&gt;2008/12/10 00:00:00 UTC&lt;/created_at&gt;
+      &lt;story_type&gt;feature&lt;/story_type&gt;
+      &lt;estimate type="integer"&gt;1&lt;/estimate&gt;
+    &lt;/external_story&gt;
+    &lt;external_story&gt;
+      &lt;external_id&gt;stardate-54869.6&lt;/external_id&gt;
+      &lt;name&gt;Warp Core Breach&lt;/name&gt;
+      &lt;description&gt;Plasma Conductors Have Failed&lt;/description&gt;
+      &lt;requested_by&gt;Spock&lt;/requested_by&gt;
+      &lt;created_at type="datetime"&gt;2009/12/10 00:00:00 UTC&lt;/created_at&gt;
+      &lt;story_type&gt;bug&lt;/story_type&gt;
+      &lt;estimate type="integer"&gt;2&lt;/estimate&gt;
+    &lt;/external_story&gt;
+  &lt;/external_stories&gt;
+  </pre>
+
+  <br><br>
+  <h3><a name="attachments" class="anchor">Attachments</a></h3>
+   
+  <h4><a name="upload_attachment" class="anchor">Upload an attachment</a></h4>
+  <p>You can upload an attachment using curl as follows:</p>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X POST -F Filedata=@/path/to/file http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>/attachments
+  </pre>
+  <span class="api-example response"><a href="#" onclick="$('upload-attachment').toggle(); $('upload-attachment-info').toggle();; return false;">(show response)</a></span>
+  <pre class="response" style="" id="upload-attachment">  
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;attachment&gt;
+      &lt;id type="integer"&gt;12&lt;/id&gt;
+      &lt;status&gt;Pending&lt;/status&gt;
+    &lt;/attachment&gt;
+    
+  </pre>
+  <p style="" id="upload-attachment-info">Pending
+status in the response indicates that the filedata is in the process of
+being stored. The file will become available on tracker as soon the
+upload finishes.</p>
+  
+  <br><br><br>
+<h3><a name="scm_post_commit" class="anchor">Source Control Management Post-Commit Hook Integration</a></h3>
+<h4><a name="scm_post_commit_overview" class="anchor">SCM Post-Commit Hook Overview</a></h4>
+<br>
+
+<p>The Tracker API supports integration with post-commit hooks of
+Source Control Management (SCM) systems such as Subversion, Git, etc.
+When a commit is made to the SCM, a trigger can call the Tracker API to
+add a story comment with the commit ID, author and message. It can also
+optionally change the story state.
+</p>
+
+<h4><a name="scm_post_commit_message_syntax" class="anchor">SCM Post-Commit Message Syntax</a></h4>
+<br>
+
+<p>To associate an SCM commit with a specific Tracker story, you must
+include a special syntax in the commit message to indicate one or more
+story IDs and (optionally) a state change for the story. Your commit
+message should have square brackets containing a hash mark followed by
+the story ID. If a story was not already started (it was in the "not
+started" state), a commit message will automatically start it. For
+example, if Scotty uses the following message when committing SCM
+revision 54321:</p>
+  <pre>  [#12345677 #12345678] Diverting power from warp drive to torpedoes.
+  </pre>
+<p>...it will result in the following comment being added to Tracker
+stories 12345677 and 12345678, and the stories will be started if they
+were not yet started:</p>
+  <pre>  Commit: Scotty
+  54321
+
+  [#12345677 #12345678] Diverting power from warp drive to torpedoes.
+  </pre>
+
+<br>
+<p>To automatically finish a story by using a commit message, include
+"fixed", "completed" or "finished" in the square brackets in addition
+to the story ID. You may also use different cases or forms of these
+verbs, such as "Fix" or "FIXES", and they may appear before or after
+the story ID. Note: For features, this will put the story in the
+'finished' state. For chores, it will put the story in the 'accepted'
+state. For example:</p>
+  <pre>  [Fixes #12345678] Torpedoes now sufficiently powered.
+  </pre>
+
+<h4><a name="generic_curl_example" class="anchor">Generic Curl Example</a></h4>
+<br>
+
+<p>Here is a simple, generic example of using the curl "-d" option to
+pass XML in the POST body for triggering a commit hook comment:</p>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;source_commit&gt;&lt;message&gt;<span class="example_variable">MESSAGE</span>&lt;/message&gt;&lt;author&gt;<span class="example_variable">AUTHOR</span>&lt;/author&gt;&lt;commit_id&gt;<span class="example_variable">REVISION</span>&lt;/commit_id&gt;&lt;url&gt;<span class="example_variable">URL</span>&lt;/url&gt;&lt;/source_commit&gt;" \ 
+    -X POST http://www.pivotaltracker.com/services/v3/source_commits
+  </pre>
+<br>
+
+<p>NOTE: Project activity created by commit hook integration will be
+attributed to the user whose API Token is passed. We advise creating a
+separate, dedicated tracker user for this purpose, such as
+"Subversion", "Git" or "GitHub".</p>
+
+<h4><a name="subversion_post_commit_example" class="anchor">Subversion Example</a></h4>
+<br>
+
+<p>Here is an example of a <a href="http://svnbook.red-bean.com/en/1.5/svn-book.html#svn.reposadmin.create.hooks">Subversion post-commit hook script</a> (don't forget to make it executable with 'chmod a+x'):</p>
+  <pre>  #!/bin/sh
+  set -e
+
+  REPO="$1"
+  REV="$2"
+
+  AUTHOR=`/usr/bin/svnlook author $REPO -r $REV`
+  MESSAGE=`/usr/bin/svnlook log $REPO -r $REV`
+
+  # You must HTML-escape the XML post data
+  MESSAGE=${MESSAGE//&amp;/&amp;amp;}
+  MESSAGE=${MESSAGE//&lt;/&amp;lt;}
+  MESSAGE=${MESSAGE//&gt;/&amp;gt;}
+  # This is just a simple example.  You also need to handle the AUTHOR, as well as quotes, backticks, etc...
+  # If you have a better one, please let us know, and we'll add it to the list of Tracker 3rd Party Tools
+  # at http://pivotaltracker.com/help/thirdpartytools.
+
+  RESPONSE=`curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;source_commit&gt;&lt;message&gt;$MESSAGE&lt;/message&gt;&lt;author&gt;$AUTHOR&lt;/author&gt;&lt;commit_id&gt;$REV&lt;/commit_id&gt;&lt;/source_commit&gt;" \
+    -X POST http://www.pivotaltracker.com/services/v3/services/v3/source_commits' %&gt;`
+  
+  echo $RESPONSE &gt;&gt; /tmp/tracker_post_commit.log
+  </pre>
+  <br>
+
+<p>For more details, see the Subversion Book section on <a href="http://svnbook.red-bean.com/en/1.5/svn-book.html#svn.reposadmin.create.hooks">Implementing Repository Hooks</a>.</p>
+
+<h4><a name="git_post_receive_example" class="anchor">Git Example</a></h4>
+<br>
+
+<p>If you are using a Git repository hosted on <a href="http://github.com/">GitHub</a>, you can easily integrate it with Tracker by <a href="http://www.pivotaltracker.com/help/api?version=v3#github_hooks">Configuring GitHub Post-Receive URLs</a></p>
+
+<p>
+  If you don't use GitHub to host your git repository, it is possible to write a git post-receive server script, similar to the <a href="http://www.pivotaltracker.com/help/api?version=v3#subversion_post_commit_example">Subversion Example</a>
+above, although you'll want to make sure you handle each commit
+separately. There are various examples of git post commit hooks,
+including <a href="http://github.com/metajack/notify-webhook">this one</a>. If you do create one for Tracker, and would like to share it, please let us know, and we'll add it to the list of <a href="http://pivotaltracker.com/help/thirdpartytools">Tracker 3rd Party Tools</a>.
+</p>
+
+<h4><a name="other_hooks" class="anchor">Other SCM Tool Hooks</a></h4>
+<br>
+
+<p>We welcome the Tracker community to contribute integration support
+for other Source Control Management systems and tools. If you have
+created something you would like to share, please let us know at <a href="mailto:tracker@pivotallabs.com">tracker@pivotallabs.com</a> and we might add it to the list of <a href="http://pivotaltracker.com/help/thirdpartytools">Tracker Third Party Tools</a>.</p>
+
+<h4><a name="github_hooks" class="anchor">GitHub Post-Receive Hooks</a></h4>
+<br>
+<p>There is a special URL to use as a <a href="http://help.github.com/post-receive-hooks">GitHub Post-Receive Hook</a>, that supports GitHub's JSON payload format. Use the following URL format:</p>
+  <pre>  https://www.pivotaltracker.com/services/v3/github_commits?token=<span class="example_variable">API_TOKEN_OF_THE_USER_TO_ATTRIBUTE_ACTIONS_TO</span>
+  </pre>
+<br>
+
+<p>GitHub integration supports all of the same keywords syntax and functionality described above for <a href="http://www.pivotaltracker.com/help/api?version=v3#scm_post_commit_message_syntax">SCM Post-Commit Message Syntax</a>.
+  The comments created by GitHub integration will also include the URL of the associated commit.  For example:</p>
+  <pre>  Commit: Scotty
+  http://github.com/scotty/enterprise/commit/41a212ee83ca127e3c8cf465891ab7216a705f57
+  [Fixes #12345677 #12345678] Torpedoes now sufficiently powered
+  </pre>
+
+</div>
+</div>
+</div>
+
+<div>
+<br><br>
+<h2><a name="api_details" class="anchor">API Logistical Details</a></h2>
+
+<div class="content_section">
+  <h3 id="location">API Location</h3>
+  <p>The Pivotal Tracker API resides at:</p>
+  <pre>  http(s)://www.pivotaltracker.com/services/v3
+  </pre>
+  <p><b>Warning:</b> You must include <b>www.</b> to avoid a redirect.</p>
+</div>
+
+
+<div id="access_control" class="content_section">
+  <h3><a name="access_control" class="anchor">Access Control</a></h3>
+  <h4><a name="access_control_token" class="anchor">Token-based Authentication</a></h4>
+<p>Tracker uses a token mechanism to authenticate API users, and access
+control to projects and stories is based on the user's project
+memberships. Every API request must include the "X-TrackerToken". The
+token may be added as an HTTP header field or a normal HTTP parameter,
+for security reasons it is recommended to add it as an HTTP header
+field. To generate a token, use the "Create New Token" link on the <a href="http://www.pivotaltracker.com/profile">My Profile</a>
+page. To remove an existing token, click the "remove" link next to the
+token. It's also possible to generate or obtain a user token <a href="http://www.pivotaltracker.com/help/api?version=v3#retrieve_token">using the API</a>, by specifying a username and password.</p>
+<h4><a name="access_control_flag" class="anchor">Disabling API Access for a Project</a></h4>
+<p>By default, API access is enabled for all projects. Project owners
+can disable API Access for their projects on the Project Settings page.</p>
+<h4><a name="access_control_ssl" class="anchor">SSL</a></h4>
+<p>It is recommended to send API calls via SSL (Secure Sockets Layer),
+but it is only required when a project has SSL enabled ("Use HTTPS" on
+the Project Settings page). Sending all API calls via SSL will ensure
+that all information, including the user's token, is sent encrypted,
+and not in plain text.</p>
+</div>
+
+<div class="content_section">
+  <h3><a name="terminology" class="anchor">Terminology</a></h3>
+  <h4><a name="terminology_project_id" class="anchor">Project ID</a></h4>
+  <p>Project-specific API calls must provide a project ID.  You can find the ID of a project on the Project Settings page.</p>
+  <h4><a name="terminology_story_id" class="anchor">Story ID</a></h4>
+  <p>For
+API calls that are specific to a feature, chore, bug or release, a
+Story ID must be provided. You can find the Story ID at the bottom of
+any expanded story.</p>
+  <h4><a name="terminology_filters" class="anchor">Filters</a></h4>
+  <p>Some
+API calls accept a filter parameter. This can be any valid search
+string which works in the Search box (with the magnifying glass) of a
+Tracker Project Page. For more details, see the <a href="http://www.pivotaltracker.com/help#howcanasearchberefined">FAQ entry on searching</a>.
+If you use a multi-word label in a filter, remember that it must be
+enclosed in double-quotes, and the double-quotes may have to be escaped
+as well, depending on the language/tool you use to invoke the API. See
+the examples for more details.</p>
+  <h4><a name="terminology_api_token" class="anchor">API Token</a></h4>
+<p>You must use a token to access the API. A token is a large
+hexadecimal hash (e.g. 3b6cc1410da3bb4a17ab0ac5aebfa024) and is
+user-specific. See the <a href="http://www.pivotaltracker.com/help/api?version=v3#access_control">Access Control</a> section for more details on tokens.</p>
+
+</div>
+
+<div id="escaping" class="content_section">
+  <h3><a name="escaping" class="anchor">HTML Escaping and URL Encoding</a></h3>
+  <br>
+  
+  <p>Tracker supports passing data to the API as XML in the post body, or as URL parameters.  You must
+    properly escape your data depending on the method you 
+    use - <a href="http://en.wikipedia.org/wiki/HTML#Character_and_entity_references">HTML-escaping</a>
+    for XML, and <a href="http://en.wikipedia.org/wiki/Percent-encoding">URL-encoding</a>
+for URL parameters. If you are using the 'curl' command line tool to
+pass data via URL parameters, it requires some additional special
+escaping.</p>
+    
+  <p>Here's an example of passing the string '&lt;special &amp; needs escaping&gt;' as XML, which requires HTML-escaping:</p>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -H "Content-type: application/xml" \
+    -d "&lt;story&gt;&lt;labels&gt;&amp;lt;special &amp;amp; needs escaping&amp;gt;&lt;/labels&gt;&lt;/story&gt;" \
+    -X PUT http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>
+  </pre>
+  <br>
+  
+  <p>Here's
+an example of passing passing the string '&lt;special &amp; needs
+encoding&gt;' as a URL parameter, which requires URL-encoding. Notice
+that there is also some special escaping required by curl - you must
+quote the URL, and escape square brackets.</p>
+
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" \
+    -X PUT "http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories/<span class="example_variable">STORY_ID</span>?story\[labels\]=%3Cspecial%20%26%20needs%20encoding%3E"
+  </pre>
+  
+</div>
+
+<div class="content_section">
+  <h3><a name="invoking_api" class="anchor">Invoking the API from different clients</a></h3>
+  <br>
+  
+  <p>The Tracker API can be invoked from any language or tool which can issue the proper HTTP requests.  Here are some examples.  <a href="http://ditchnet.org/httpclient/">HTTP Client</a> is a useful application for testing and experimenting.</p>
+  <h4><a name="example_curl" class="anchor">Curl Command Line</a></h4>
+  <pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories
+  </pre>
+  <p>or</p>
+<pre>  curl -H "X-TrackerToken: <span class="example_variable">TOKEN</span>" -X GET http://www.pivotaltracker.com/services/v3/projects/<span class="example_variable">PROJECT_ID</span>/stories?token=<span class="example_variable">TOKEN</span>
+
+</pre>
+
+  <h4><a name="example_ruby" class="anchor">Ruby</a></h4>
+  <pre>  require 'rubygems'
+  require 'hpricot'
+  require 'net/http'
+  require 'uri'
+
+  resource_uri = URI.parse("http://www.pivotaltracker.com/services/v3/projects/#{<span class="example_variable">PROJECT_ID</span>}")
+  response = Net::HTTP.start(resource_uri.host, resource_uri.port) do |http|
+    http.get(resource_uri.path, {'X-TrackerToken' =&gt; '<span class="example_variable">TOKEN</span>'})
+  end
+
+  doc = Hpricot(response.body).at('project')
+
+  @project = {
+    :name             =&gt; doc.at('name').innerHTML,
+    :iteration_length =&gt; doc.at('iteration_length').innerHTML,
+    :week_start_day   =&gt; doc.at('week_start_day').innerHTML,
+    :point_scale      =&gt; doc.at('point_scale').innerHTML
+  }
+  </pre>
+
+ <h4><a name="example_active_resource" class="anchor">ActiveResource</a></h4>
+  <pre>  require 'rubygems'
+  require 'activeresource'
+  class Story &lt; ActiveResource::Base
+    self.site = "http://www.pivotaltracker.com/services/v3/projects/:project_id"
+    headers['X-TrackerToken'] = '<span class="example_variable">TOKEN</span>'
+  end
+
+  # Create a story
+  Story.create(:name =&gt; "Warp Speed ", :requested_by =&gt; "James Kirk", :description =&gt; "do it now", :project_id =&gt; <span class="example_variable">PROJECT_ID</span>)
+
+  # Find stories
+  Story.find(<span class="example_variable">STORY_ID</span>, :params =&gt; {:project_id =&gt; <span class="example_variable">PROJECT_ID</span>})
+  Story.find(:all, :params =&gt; {:project_id =&gt; <span class="example_variable">PROJECT_ID</span>})
+  Story.find(:all, :params =&gt; {:filter =&gt; "label:'needs feedback' type:bug", :project_id =&gt; <span class="example_variable">PROJECT_ID</span>})
+
+  # Update a story
+  story = Story.find(<span class="example_variable">STORY_ID</span>, :params =&gt; {:project_id =&gt; <span class="example_variable">PROJECT_ID</span>})
+  story.name = "More speed Scotty"
+  story.save 
+  </pre>
+
+  <h4><a name="example_python" class="anchor">Python</a></h4>
+  <pre>  import urllib
+  import urllib2
+  from xml.dom import minidom
+
+  url = "http://www.pivotaltracker.com/services/v3/projects/%s" % <span class="example_variable">PROJECT_ID</span>
+
+  req = urllib2.Request(url, None, {'X-TrackerToken': '<span class="example_variable">TOKEN</span>'})
+  response = urllib2.urlopen(req)
+  dom = minidom.parseString(response.read())
+
+  doc = dom.getElementsByTagName('project')[0]
+
+  project = {
+    'name'              : doc.getElementsByTagName('name')[0].firstChild.data,
+    'iteration_length'  : doc.getElementsByTagName('iteration_length')[0].firstChild.data,
+    'week_start_day'    : doc.getElementsByTagName('week_start_day')[0].firstChild.data,
+    'point_scale'       : doc.getElementsByTagName('point_scale')[0].firstChild.data
+  }
+  </pre>
+</div>
+
+</div>
+</div>
+
+    </div>
+    <noscript>
+  <div id='js_required'>Tracker requires JavaScript. Please enable it in your browser.</div>
+</noscript>
+    <div class="push"></div>
+  </div>
+    <div id="footer">
+  <div class="content">
+      <div class="image jolt_award">
+        Product Excellence Award
+        <a href="http://assets.pivotallabs.com/press/Pivotal-Tracker-Jolt-Award-release.html"><img alt="Jolt Award" src="api_files/jolt09-presentedby-65px.png"></a>
+      </div>
+    <div class="hosted_by">
+      Hosted by
+      <a href="http://www.engineyard.com/?utm_source=pivotaltracker.com&amp;utm_medium=hosting&amp;utm_campaign=PivotalTracker-Hosting"><img alt="Engine Yard" src="api_files/engineyard.png"></a>
+    </div>
+     <div class="tracker_twitter">
+         Tracker on Twitter
+         <a href="http://twitter.com/pivotaltracker/"><img alt="Tracker on Twitter" src="api_files/twitter-icon.png"></a>
+     </div>
+    <div class="developed_by">
+      Developed by
+      <a href="http://pivotallabs.com/"><img alt="Pivotal Labs" src="api_files/pivotal_labs.png"></a>
+    </div>
+    <div class="tracker_logo">
+      <a href="http://www.pivotaltracker.com/dashboard"><img alt="PivotalTracker" src="api_files/pivotal_tracker.png"></a>
+    </div>
+    <div class="footer_links">
+        <a href="http://www.pivotaltracker.com/help">Help</a><a href="#" onclick="GSFN.show(); return false;; return false;">Feedback</a><a href="http://www.pivotaltracker.com/blog">Blog</a><a href="http://www.pivotaltracker.com/policy/eula">Policies</a><a href="http://www.pivotallabs.com/">About Pivotal Labs</a><a href="mailto:tracker@pivotallabs.com">Contact Us</a>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">_uacct = "UA-1687866-3";urchinTracker();</script>
+
+
+  <style type="text/css">@import url('http://s3.amazonaws.com/getsatisfaction.com/feedback/feedback.css');</style>
+  <script src="api_files/feedback.js" type="text/javascript"></script>
+  <script type="text/javascript" charset="utf-8">
+    var tab_options = {}
+    tab_options.placement = "right";  // left, right, bottom, hidden
+    tab_options.color = "#222"; // hex (#FF0000) or color (red)
+    GSFN.feedback('http://community.pivotaltracker.com/pivotal/feedback/topics/new?display=overlay&style=idea&fastpass=http%3A%2F%2Fgetsatisfaction.com%2Ffastpass%3Femail%3Dhani.elabed%2540gmail.com%26name%3Dhani%2Belabed%26oauth_consumer_key%3Dnv8n1u3a4b6n%26oauth_nonce%3DRCFNhh3HHE7vBM3cY7wRl3NucS0R7M99c86tVpLLWA%26oauth_signature%3DV4EfaP38dVf0%252FxvLKpzVwacJqKc%253D%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1265653457%26oauth_version%3D1.0%26uid%3D13848', tab_options);
+  </script><a href="#" id="fdbk_tab" class="fdbk_tab_right" style="background-color: rgb(34, 34, 34);">FEEDBACK</a><div id="fdbk_overlay" style="display: none;"><div id="fdbk_container"><a href="#" onclick="GSFN.hide();return false" id="fdbk_close"></a><iframe src="api_files/transparent.gif" id="fdbk_iframe" allowtransparency="true" class="loading" scrolling="no" frameborder="0"></iframe></div><div id="fdbk_screen"></div></div>
+
+
+
+
+
+
+  <script type="text/javascript">
+//<![CDATA[
+onload = function(){};
+//]]>
+</script>
+</body></html>
